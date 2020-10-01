@@ -14,6 +14,13 @@
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		96905EF65AED1B983A6B3ABC /* libPods-fontsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-fontsample.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		4324CA85389A45DA9803F4DA /* SansitaSwashed-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA036AF85F75453D9B2A3FA9 /* SansitaSwashed-Black.ttf */; };
+		B187736DC584461E9BC2F199 /* SansitaSwashed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC8F4355EE714E43BBC2902F /* SansitaSwashed-Bold.ttf */; };
+		B281197B7B9B49689931E20A /* SansitaSwashed-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6E8DDCD2EBB4EB781F46463 /* SansitaSwashed-ExtraBold.ttf */; };
+		E432FCD536404FAF9C1ED05E /* SansitaSwashed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B51A4FBFF434E068F02931A /* SansitaSwashed-Light.ttf */; };
+		81BB47A4C4214AC08696B78B /* SansitaSwashed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 962CA82B78674ED6A1C37003 /* SansitaSwashed-Medium.ttf */; };
+		6907C678C0194D6D841FD4C6 /* SansitaSwashed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87B55FEC3CF54DD79D61CA33 /* SansitaSwashed-Regular.ttf */; };
+		2AF05F4323E44E3596712AC4 /* SansitaSwashed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A855628B7A9E4ADEB94A4CB0 /* SansitaSwashed-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +39,13 @@
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		FA036AF85F75453D9B2A3FA9 /* SansitaSwashed-Black.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-Black.ttf"; path = "../assets/fonts/SansitaSwashed-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BC8F4355EE714E43BBC2902F /* SansitaSwashed-Bold.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-Bold.ttf"; path = "../assets/fonts/SansitaSwashed-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B6E8DDCD2EBB4EB781F46463 /* SansitaSwashed-ExtraBold.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-ExtraBold.ttf"; path = "../assets/fonts/SansitaSwashed-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0B51A4FBFF434E068F02931A /* SansitaSwashed-Light.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-Light.ttf"; path = "../assets/fonts/SansitaSwashed-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		962CA82B78674ED6A1C37003 /* SansitaSwashed-Medium.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-Medium.ttf"; path = "../assets/fonts/SansitaSwashed-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		87B55FEC3CF54DD79D61CA33 /* SansitaSwashed-Regular.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-Regular.ttf"; path = "../assets/fonts/SansitaSwashed-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A855628B7A9E4ADEB94A4CB0 /* SansitaSwashed-SemiBold.ttf */ = {isa = PBXFileReference; name = "SansitaSwashed-SemiBold.ttf"; path = "../assets/fonts/SansitaSwashed-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +101,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
+				DC8D5530CE6F43B8BD5E9005 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -118,6 +133,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		DC8D5530CE6F43B8BD5E9005 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				FA036AF85F75453D9B2A3FA9 /* SansitaSwashed-Black.ttf */,
+				BC8F4355EE714E43BBC2902F /* SansitaSwashed-Bold.ttf */,
+				B6E8DDCD2EBB4EB781F46463 /* SansitaSwashed-ExtraBold.ttf */,
+				0B51A4FBFF434E068F02931A /* SansitaSwashed-Light.ttf */,
+				962CA82B78674ED6A1C37003 /* SansitaSwashed-Medium.ttf */,
+				87B55FEC3CF54DD79D61CA33 /* SansitaSwashed-Regular.ttf */,
+				A855628B7A9E4ADEB94A4CB0 /* SansitaSwashed-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -183,6 +213,13 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+				4324CA85389A45DA9803F4DA /* SansitaSwashed-Black.ttf in Resources */,
+				B187736DC584461E9BC2F199 /* SansitaSwashed-Bold.ttf in Resources */,
+				B281197B7B9B49689931E20A /* SansitaSwashed-ExtraBold.ttf in Resources */,
+				E432FCD536404FAF9C1ED05E /* SansitaSwashed-Light.ttf in Resources */,
+				81BB47A4C4214AC08696B78B /* SansitaSwashed-Medium.ttf in Resources */,
+				6907C678C0194D6D841FD4C6 /* SansitaSwashed-Regular.ttf in Resources */,
+				2AF05F4323E44E3596712AC4 /* SansitaSwashed-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
