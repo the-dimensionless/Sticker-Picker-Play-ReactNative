@@ -1,0 +1,12 @@
+{
+  "name": "font-sample",
+  "displayName": "font-sample",
+  "expo": {
+    "name": "font-sample",
+    "slug": "font-sample",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
