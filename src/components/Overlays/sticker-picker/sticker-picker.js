@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
 import ViewShot from 'react-native-view-shot';
-
-//Native
 import {
-    Animated,
-    Dimensions,
-    Image,
-    ImageBackground,
-    Modal,
-    PanResponder,
-    ScrollView,
-    StyleSheet,
-    TouchableOpacity,
-    Text,
-    View
+    Animated, Dimensions, Image, ImageBackground, Modal, PanResponder, ScrollView, StyleSheet,
+    TouchableOpacity, Text, View
 } from 'react-native';
 
 import ghost from '../../../../assets/emojis/ghost.png';
