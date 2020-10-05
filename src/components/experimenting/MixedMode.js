@@ -7,7 +7,6 @@ import {
     RotationGestureHandler,
     State,
 } from 'react-native-gesture-handler'; // 1.0.0-alpha.35
-import DisplayImage from '../../../assets/mypic.jpg';
 import ghost from '../../../assets/emojis/ghost.png';
 
 const USE_NATIVE_DRIVER = false; // https://github.com/kmagiera/react-native-gesture-handler/issues/71
@@ -17,6 +16,12 @@ const MAXIMUM_STICKER_SCALE = 2.5;
 export class Sticker extends React.Component {
     constructor(props) {
         super(props);
+        console.log('Image data ', this.props.image);
+
+        this.dragImageRef = React.createRef();
+        this.pinchImageRef = React.createRef();
+        this.rotateImageRef = React.createRef();
+
 
         /* Pinching */
         this.baseScale = new Animated.Value(1);
@@ -97,25 +102,25 @@ export class Sticker extends React.Component {
         };
         return (
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-                <Image source={DisplayImage} style={styles.backgroundImage} />
+                <Image source={this.props.image} style={styles.backgroundImage} />
 
                 <PanGestureHandler
                     {...this.props}
                     onGestureEvent={this.onPanGestureEvent}
                     onHandlerStateChange={this.onPanStateChange}
-                    id="image_drag"
-                    simultaneousHandlers={['image_pinch', 'image_rotation']}
+                    ref={this.dragImageRef}
+                    simultaneousHandlers={[this.pinchImageRef, this.rotateImageRef]}
                     shouldCancelWhenOutside={true}
                 >
                     <RotationGestureHandler
-                        id="image_rotation"
-                        simultaneousHandlers={['image_pinch', 'image_drag']}
+                        ref={this.rotateImageRef}
+                        simultaneousHandlers={[this.pinchImageRef, this.dragImageRef]}
                         onGestureEvent={this.onRotateGestureEvent}
                         onHandlerStateChange={this.onRotateHandlerStateChange}
                     >
                         <PinchGestureHandler
-                            id="image_pinch"
-                            simultaneousHandlers={['image_rotation', 'image_drag']}
+                            ref={this.pinchImageRef}
+                            simultaneousHandlers={[this.rotateImageRef, this.dragImageRef]}
                             onGestureEvent={this.onPinchGestureEvent}
                             onHandlerStateChange={this.onPinchHandlerStateChange}
                         >
