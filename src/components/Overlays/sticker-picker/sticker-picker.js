@@ -203,7 +203,6 @@ export default class StickerPicker extends Component {
                             </TouchableOpacity>
                         </View>
                     )}
-                    <Text>Here is empty space</Text>
                 </View>
             </Modal>
         );
@@ -218,7 +217,7 @@ const styles = StyleSheet.create({
         width: width,
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: 150,
+        minHeight: 130,
     },
     actionTitle: {
         color: 'blue',
@@ -230,7 +229,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
-        height: 500,
+        height: 400,
         width: width,
     },
     finalAttachment: {

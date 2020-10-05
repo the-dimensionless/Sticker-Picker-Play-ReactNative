@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     bottomContainerStyle: {
-        height: 80
+        height: 20
     },
     attachment: {
         alignItems: 'center',
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     actionTitle: {
         color: 'blue',
         alignSelf: 'center',
-        marginTop: 20,
+        marginTop: 10,
         fontSize: 20
     },
     stickerPickerContainer: {
