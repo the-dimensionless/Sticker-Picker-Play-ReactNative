@@ -1,5 +1,5 @@
 import React, { createRef, useState } from 'react';
-import { Animated, Image, View, TouchableOpacity } from 'react-native';
+import { Animated, Image, View, TouchableOpacity, Text, ScrollView } from 'react-native';
 import ViewShot from 'react-native-view-shot';
 
 import Sticker from '../experimenting/MixedMode';
@@ -61,7 +61,7 @@ const StickerWrap = ({ displayImage }) => {
                 <Sticker image={displayImage} />
             </ViewShot>
 
-            <TouchableOpacity style={this.props.bottomContainerStyle} onPress={() => this.takeViewShot()}>
+            <TouchableOpacity onPress={() => this.takeViewShot()}>
                 <Text>Take Snapshot</Text>
             </TouchableOpacity>
 

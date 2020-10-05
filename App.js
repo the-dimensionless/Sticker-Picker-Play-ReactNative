@@ -6,7 +6,7 @@ import StickerOverlay from './src/components/Overlays/StickerOverlay';
 import ImagePlay from './src/components/experimenting/ImagePlay';
 import StickerWraps from './src/components/sticker-wrap-gift/StickerWrap';
 
-import DisplayImage from './assets/mypic.jpg';
+import DisplayImage from './assets/diwali.jpg';
 
 export default function App() {
   return (
