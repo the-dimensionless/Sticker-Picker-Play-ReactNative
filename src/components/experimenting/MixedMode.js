@@ -136,8 +136,6 @@ export class Sticker extends React.Component {
                                                 { perspective: 200 },
                                                 { scale: this.scale },
                                                 { rotate: this.rotateStr },
-                                                // { translateX: this.translateX },
-                                                // { translateY: this.translateY },
                                             ],
                                         },
                                     ]}
