@@ -16,15 +16,15 @@ import {
     View
 } from 'react-native';
 
-const ghost = require('./emojis/ghost.png');
-const heart = require('./emojis/heart.png');
-const heartEyes = require('./emojis/heartEyes.png');
-const kiss = require('./emojis/kiss.png');
-const party = require('./emojis/party.png');
-const robot = require('./emojis/robot.png');
-const smile = require('./emojis/smile.png');
-const sunglasses = require('./emojis/sunglasses.png');
-const thumbsup = require('./emojis/thumbsup.png');
+import ghost from '../../../../assets/emojis/ghost.png';
+import heart from '../../../../assets/emojis/heart.png';
+import heartEyes from '../../../../assets/emojis/heartEyes.png';
+import kiss from '../../../../assets/emojis/kiss.png';
+import party from '../../../../assets/emojis/party.png';
+import smile from '../../../../assets/emojis/smile.png';
+import sunglasses from '../../../../assets/emojis/sunglasses.png';
+import thumbsup from '../../../../assets/emojis/thumbsup.png';
+import robot from '../../../../assets/emojis/robot.png';
 
 export default class StickerPicker extends Component {
     constructor(props) {
