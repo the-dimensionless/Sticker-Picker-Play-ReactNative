@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 
-import PinchingOperation from '../experimenting/PinchingOperation';
+import PinchingOperation from './PinchingOperation';
 import ghost from '../../../assets/emojis/ghost.png';
 
 const ImagePlay = () => {

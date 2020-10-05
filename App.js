@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import Example from './src/components/Example';
 import StickerOverlay from './src/components/Overlays/StickerOverlay';
-import ImagePlay from './src/components/experimenting/ImagePlay';
+import ImagePlay from './src/components/util/ImagePlay';
 import StickerWraps from './src/components/sticker-wrap-gift/StickerWrap';
 
 import DisplayImage from './assets/diwali.jpg';
