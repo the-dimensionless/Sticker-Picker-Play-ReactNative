@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Animated, Text, TouchableWithoutFeedback } from 'react-native';
+import { Easing } from 'react-native-reanimated';
 
 const Layout = () => {
     const date = 5;
@@ -12,23 +13,23 @@ const Layout = () => {
     const [pastAnimation, setPastAnimation] = useState(new Animated.Value(0))
     const [futureAnimation, setFutureAnimation] = useState(new Animated.Value(0))
 
+    let index = 1;
     const handleAnimation = () => {
-
-        for (let index = 1; index < 35; index++) {
-
-
-        }
-        /* Animated.timing(pastAnimation, {
+        Animated.timing(pastAnimation, {
             toValue: 1,
-            duration: 1000,
+            duration: 1200,
+            delay: (index++) * 650,
+            easing: Easing.linear(),
             useNativeDriver: false,
         }).start(() => {
             Animated.timing(futureAnimation, {
-                toValue: 1,
-                duration: 1000,
+                toValue: 2,
+                duration: 1200,
+                delay: (index++) * 650,
+                easing: Easing.linear,
                 useNativeDriver: false
             }).start()
-        }) */
+        })
     }
 
     const pastDays = pastAnimation.interpolate({
