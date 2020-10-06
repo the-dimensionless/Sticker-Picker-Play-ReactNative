@@ -8,12 +8,16 @@ import StickerWraps from './src/components/sticker-wrap-gift/StickerWrap';
 
 import DisplayImage from './assets/diwali.jpg';
 
+import Layout from './src/components/util/Layout';
+import FLayout from './src/components/util/FLayout';
 export default function App() {
   return (
     // <Example />
     // <StickerOverlay />
     // <ImagePlay />
-    <StickerWraps displayImage={DisplayImage} />
+    //<StickerWraps displayImage={DisplayImage} />
+    //<Layout />
+    <FLayout />
   );
 }
 

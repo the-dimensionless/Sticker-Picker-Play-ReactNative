@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import ViewShot from 'react-native-view-shot';
-import DisplayImage from '../../../assets/mypic.jpg';
+import DisplayImage from '../../../assets/diwali.jpg';
 
 //Native
 import {
