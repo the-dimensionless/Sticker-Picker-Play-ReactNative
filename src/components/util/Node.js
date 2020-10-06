@@ -4,9 +4,11 @@ import { View, Text, StyleSheet } from 'react-native';
 const Node = ({ item }) => {
     return (
         <View
-
-            style={!item.currentDate ? { ...styles.pellet, backgroundColor: item.backgroundColor }
-                : { ...styles.circle, borderColor: item.backgroundColor, borderWidth: 5 }
+            style={!item.currentDate ? {
+                ...styles.pellet, backgroundColor: item.backgroundColor,
+                opacity: (item.transparent) ? 0 : item.opacity
+            }
+                : { ...styles.circle, borderColor: item.backgroundColor, borderWidth: 5, opacity: item.opacity }
             } key={item.key}
             ref={item.keyRef}
         >
@@ -23,23 +25,21 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         width: 55,
         height: 60,
-        marginBottom: 5,
-        marginRight: 5
+        marginRight: 5,
     },
     pellet: {
         borderRadius: 7,
         width: 40,
         height: 10,
-        marginBottom: 5,
-        marginRight: 5
-    },
-    today: {
-
+        marginTop: 25,
+        marginRight: 10,
+        marginBottom: 25
     },
     date: {
         fontSize: 24,
         alignSelf: 'center',
-        padding: 12
+        padding: 12,
+        color: 'red'
     }
 })
 

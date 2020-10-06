@@ -1,30 +1,36 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { View, FlatList, Text, StyleSheet, Button, Animated } from 'react-native';
+import React from 'react';
+import { View, FlatList, StyleSheet, Button } from 'react-native';
 import Node from './Node';
+import _ from 'lodash';
 
-const date = 6;
+const todayDate = new Date('2020-09-06');
+let date = undefined;
+let maxDate = undefined;
+let startDay = undefined;
+
 class FLayout extends React.Component {
     constructor(props) {
         super(props);
+
+        date = todayDate.getDate();
+        maxDate = new Date(todayDate.getFullYear(), todayDate.getMonth() + 1, 0).getDate();
+        startDay = new Date(todayDate.getFullYear(), todayDate.getMonth(), 1).getDay();
+
+
         this.state = {
-            gridViewItems: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-                23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35].map(app => {
-                    return {
-                        key: app,
-                        keyRef: React.createRef(),
-                        backgroundColor: 'grey',
-                        currentDate: false
-                    }
-                })
+            gridViewItems: _.range(1 - startDay, 36 - startDay).map(app => {
+                return {
+                    key: app,
+                    keyRef: React.createRef(),
+                    backgroundColor: 'grey',
+                    currentDate: false,
+                    transparent: app < 1 || app > maxDate,
+                    opacity: 1
+                }
+            })
         }
     }
 
-    componentDidMount() {
-        const listRef = React.createRef();
-        const date = 6;
-        console.log(this.state.gridViewItems);
-
-    }
     render() {
         const delay = (timer) => {
             return new Promise((res, rej) => {
@@ -38,15 +44,30 @@ class FLayout extends React.Component {
             })
         }
 
+        const animateNode = async (index) => {
+            const newList = (this.state)
+            newList.gridViewItems[index].opacity = 0.2;
+            this.setState(newList);
+            for (let currentOpacity = 0.2; currentOpacity < 1.0; currentOpacity += 0.65) {
+                await delay(1);
+                const newList = (this.state)
+                newList.gridViewItems[index].opacity = Math.min(currentOpacity, 1);
+                this.setState(newList);
+            }
+        }
+
         const handleAnimation = async () => {
             for (let index = 0; index < this.state.gridViewItems.length; index++) {
+                //animateNode(index);
                 const i = this.state.gridViewItems[index];
                 const newList = (this.state)
                 newList.gridViewItems[index].backgroundColor = (i.key < date) ? "green" : "red";
                 newList.gridViewItems[index].currentDate = (i.key === date);
                 this.setState(newList);
-                console.log('Animatin for ', i.key);
-                await delay(500);
+
+                if ((index + 1) % 3 === 0) {
+                    await delay(250);
+                }
             }
         }
 
@@ -59,9 +80,9 @@ class FLayout extends React.Component {
                     /* ref={listRef} */
                     renderItem={({ item }) =>
                         <Node item={item} />}
-                    numColumns={5}
+                    numColumns={7}
                 />
-                {/* <Button title='start' onPress={() => handleAnimation()} /> */}
+                <Button title='start' onPress={() => handleAnimation()} />
             </View>
         )
     };
@@ -74,7 +95,9 @@ const styles = StyleSheet.create({
     },
     flatlist: {
         flex: 1,
-        justifyContent: 'space-between'
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        maxHeight: '100%'
     }
 
 })
