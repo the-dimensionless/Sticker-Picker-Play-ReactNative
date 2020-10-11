@@ -105,47 +105,51 @@ export class Sticker extends React.Component {
             <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
                 <Image source={this.props.image} style={styles.backgroundImage} />
 
-                <PanGestureHandler
-                    {...this.props}
-                    onGestureEvent={this.onPanGestureEvent}
-                    onHandlerStateChange={this.onPanStateChange}
-                    ref={this.dragImageRef}
-                    simultaneousHandlers={[this.pinchImageRef, this.rotateImageRef]}
-                    shouldCancelWhenOutside={true}
-                >
-                    <RotationGestureHandler
-                        ref={this.rotateImageRef}
-                        simultaneousHandlers={[this.pinchImageRef, this.dragImageRef]}
-                        onGestureEvent={this.onRotateGestureEvent}
-                        onHandlerStateChange={this.onRotateHandlerStateChange}
-                    >
-                        <PinchGestureHandler
-                            ref={this.pinchImageRef}
-                            simultaneousHandlers={[this.rotateImageRef, this.dragImageRef]}
-                            onGestureEvent={this.onPinchGestureEvent}
-                            onHandlerStateChange={this.onPinchHandlerStateChange}
+                {this.props.emojis.map((sticker, index) => {
+                    return (
+                        <PanGestureHandler key={index}
+                            {...this.props}
+                            onGestureEvent={this.onPanGestureEvent}
+                            onHandlerStateChange={this.onPanStateChange}
+                            ref={this.dragImageRef}
+                            simultaneousHandlers={[this.pinchImageRef, this.rotateImageRef]}
+                            shouldCancelWhenOutside={true}
                         >
-                            <Animated.View
-                                style={[panStyle, styles.stickerContainer]}
-                                collapsable={false}
+                            <RotationGestureHandler
+                                ref={this.rotateImageRef}
+                                simultaneousHandlers={[this.pinchImageRef, this.dragImageRef]}
+                                onGestureEvent={this.onRotateGestureEvent}
+                                onHandlerStateChange={this.onRotateHandlerStateChange}
                             >
-                                <Animated.Image
-                                    style={[
-                                        styles.pinchableImage,
-                                        {
-                                            transform: [
-                                                { perspective: 200 },
-                                                { scale: this.scale },
-                                                { rotate: this.rotateStr },
-                                            ],
-                                        },
-                                    ]}
-                                    source={this.props.emojis}
-                                />
-                            </Animated.View>
-                        </PinchGestureHandler>
-                    </RotationGestureHandler>
-                </PanGestureHandler>
+                                <PinchGestureHandler
+                                    ref={this.pinchImageRef}
+                                    simultaneousHandlers={[this.rotateImageRef, this.dragImageRef]}
+                                    onGestureEvent={this.onPinchGestureEvent}
+                                    onHandlerStateChange={this.onPinchHandlerStateChange}
+                                >
+                                    <Animated.View
+                                        style={[panStyle, styles.stickerContainer]}
+                                        collapsable={false}
+                                    >
+                                        <Animated.Image
+                                            style={[
+                                                styles.pinchableImage,
+                                                {
+                                                    transform: [
+                                                        { perspective: 200 },
+                                                        { scale: this.scale },
+                                                        { rotate: this.rotateStr },
+                                                    ],
+                                                },
+                                            ]}
+                                            source={sticker}
+                                        />
+                                    </Animated.View>
+                                </PinchGestureHandler>
+                            </RotationGestureHandler>
+                        </PanGestureHandler>
+                    )
+                })}
             </View>
         );
     }

@@ -20,7 +20,7 @@ import WithSheet from '../experimenting/withSheet';
 const StickerWrap = ({ displayImage }) => {
     const viewShot = createRef()
     const stickers = []
-    const [emojis, setEmojis] = useState(ghost);
+    const [emojis, setEmojis] = useState([ghost]);
     const [sticker, setSticker] = useState();
     const [showSticker, setShowSticker] = useState(false);
 
@@ -31,7 +31,7 @@ const StickerWrap = ({ displayImage }) => {
     const [previewImageSize, setPreviousImageSize] = useState(350);
 
     const addEmoji = (emo) => {
-        setEmojis(emo);
+        setEmojis([...emojis, emo]);
     }
     const takeViewShot = () => {
         console.log('capturing . . .')
