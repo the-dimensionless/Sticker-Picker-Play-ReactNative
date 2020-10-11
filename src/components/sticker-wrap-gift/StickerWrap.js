@@ -20,6 +20,7 @@ import WithSheet from '../experimenting/withSheet';
 const StickerWrap = ({ displayImage }) => {
     const viewShot = createRef()
     const stickers = []
+    const [emojis, setEmojis] = useState(ghost);
     const [sticker, setSticker] = useState();
     const [showSticker, setShowSticker] = useState(false);
 
@@ -29,7 +30,9 @@ const StickerWrap = ({ displayImage }) => {
     const [pan, setPan] = useState(new Animated.ValueXY());
     const [previewImageSize, setPreviousImageSize] = useState(350);
 
-
+    const addEmoji = (emo) => {
+        setEmojis(emo);
+    }
     const takeViewShot = () => {
         console.log('capturing . . .')
         viewShot.current.capture().then(uri => {
@@ -110,7 +113,7 @@ const StickerWrap = ({ displayImage }) => {
                         ref={viewShot}
                         options={{ format: 'jpg', quality: 1.0 }}
                     >
-                        <Sticker image={displayImage} />
+                        <Sticker image={displayImage} emojis={emojis} />
                     </ViewShot>
 
                     <TouchableOpacity onPress={() => takeViewShot()} style={{ flex: 0.5 }}>
@@ -119,7 +122,7 @@ const StickerWrap = ({ displayImage }) => {
                     <View >
                         <Button title='Hi' />
                     </View>
-                    <WithSheet />
+                    <WithSheet props={addEmoji} />
                     {/* <ScrollView overScrollMode={'always'} horizontal={true} contentContainerStyle={[styles.stickerPickerContainer]}>
                         {finalStickers.map((sticker, index) => {
                             return (

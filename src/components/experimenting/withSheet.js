@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native'
+import React, { useEffect } from 'react'
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, TouchableHighlight } from 'react-native'
 import BottomSheet from 'reanimated-bottom-sheet'
 import Animated from 'react-native-reanimated'
 
@@ -35,7 +35,12 @@ const defaultStickers = [
 
 let finalStickers = defaultStickers;
 
-const WithSheet = () => {
+const WithSheet = (props) => {
+
+    const logger = () => {
+        console.log('Sticker is selected', props.props);
+
+    }
 
     //export default class WithSheet extends React.Component {
     const renderInner = () => (
@@ -43,12 +48,12 @@ const WithSheet = () => {
         <ScrollView overScrollMode={'always'} horizontal={true} contentContainerStyle={[styles.stickerPickerContainer]}>
             {finalStickers.map((sticker, index) => {
                 return (
-                    <TouchableOpacity key={index} onPress={() => {
-                        //setSticker(sticker[1])
-                        console.log('STicker Selected')
-                    }}>
+                    /*  <TouchableOpacity key={index} onPress={() => logger()}>
+                         {sticker[0]}
+                     </TouchableOpacity> */
+                    <View key={index} onTouchStart={() => props.props(sticker[1])}>
                         {sticker[0]}
-                    </TouchableOpacity>
+                    </View>
                 )
             })}
         </ScrollView>

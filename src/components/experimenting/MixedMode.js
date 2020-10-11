@@ -17,6 +17,7 @@ export class Sticker extends React.Component {
     constructor(props) {
         super(props);
         console.log('Image data ', this.props.image);
+        console.log('List of Emojis is', this.props.emojis);
 
         this.dragImageRef = React.createRef();
         this.pinchImageRef = React.createRef();
@@ -139,7 +140,7 @@ export class Sticker extends React.Component {
                                             ],
                                         },
                                     ]}
-                                    source={ghost}
+                                    source={this.props.emojis}
                                 />
                             </Animated.View>
                         </PinchGestureHandler>
