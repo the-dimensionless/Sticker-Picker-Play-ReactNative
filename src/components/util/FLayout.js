@@ -66,7 +66,7 @@ class FLayout extends React.Component {
                 this.setState(newList);
 
                 if ((index + 1) % 3 === 0) {
-                    await delay(250);
+                    await delay(3);
                 }
             }
         }

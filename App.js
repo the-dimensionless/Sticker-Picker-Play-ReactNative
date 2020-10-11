@@ -10,14 +10,17 @@ import DisplayImage from './assets/diwali.jpg';
 
 import Layout from './src/components/util/Layout';
 import FLayout from './src/components/util/FLayout';
+import WithSheet from './src/components/experimenting/withSheet';
+
 export default function App() {
   return (
     // <Example />
     // <StickerOverlay />
     // <ImagePlay />
-    //<StickerWraps displayImage={DisplayImage} />
+    <StickerWraps displayImage={DisplayImage} />
     //<Layout />
-    <FLayout />
+    //<FLayout / >
+    //<WithSheet />
   );
 }
 
