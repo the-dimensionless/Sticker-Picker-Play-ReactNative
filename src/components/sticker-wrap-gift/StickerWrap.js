@@ -1,8 +1,8 @@
 import React, { createRef, useState } from 'react';
-import { Animated, Image, View, TouchableOpacity, Text, Button, ScrollView, StyleSheet } from 'react-native';
+import { Animated, Image, View, Button, StyleSheet } from 'react-native';
 import ViewShot from 'react-native-view-shot';
 
-import Sticker from '../experimenting/MixedMode';
+/* import Sticker from '../experimenting/MixedMode'; */
 import StickerHandler from '../experimenting/StickerHandler';
 import WithSheet from '../experimenting/withSheet';
 

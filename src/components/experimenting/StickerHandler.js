@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Animated, StyleSheet, View, Image } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 import {
     PanGestureHandler,
     PinchGestureHandler,
@@ -95,7 +95,6 @@ const StickerHandler = (props) => {
     let panStyle = {
         transform: [{ translateX }, { translateY }],
     };
-
 
     return (
         <>
