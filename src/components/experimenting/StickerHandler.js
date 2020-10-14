@@ -6,7 +6,6 @@ import {
     RotationGestureHandler,
     State,
 } from 'react-native-gesture-handler';
-import ghost from '../../../assets/emojis/ghost.png';
 
 const USE_NATIVE_DRIVER = false;
 const MINIMUM_STICKER_SCALE = 0.25;

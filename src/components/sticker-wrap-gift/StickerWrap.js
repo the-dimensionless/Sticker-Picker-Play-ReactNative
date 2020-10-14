@@ -3,32 +3,20 @@ import { Animated, Image, View, TouchableOpacity, Text, Button, ScrollView, Styl
 import ViewShot from 'react-native-view-shot';
 
 import Sticker from '../experimenting/MixedMode';
-
-import ghost from '../../../assets/emojis/ghost.png';
-import heart from '../../../assets/emojis/heart.png';
-import heartEyes from '../../../assets/emojis/heartEyes.png';
-import kiss from '../../../assets/emojis/kiss.png';
-import party from '../../../assets/emojis/party.png';
-import smile from '../../../assets/emojis/smile.png';
-import sunglasses from '../../../assets/emojis/sunglasses.png';
-import robot from '../../../assets/emojis/robot.png';
-import thumbsup from '../../../assets/emojis/thumbsup.png';
-
+import StickerHandler from '../experimenting/StickerHandler';
 import WithSheet from '../experimenting/withSheet';
 
 
 const StickerWrap = ({ displayImage }) => {
     const viewShot = createRef()
-    const stickers = []
-    const [emojis, setEmojis] = useState([ghost]);
-    const [sticker, setSticker] = useState();
+    const [emojis, setEmojis] = useState([]);
     const [showSticker, setShowSticker] = useState(false);
 
     const [pickerVisible, setPickerVisible] = useState(true);
 
     const [finalImage, setFinalImage] = useState({});
     const [pan, setPan] = useState(new Animated.ValueXY());
-    const [previewImageSize, setPreviousImageSize] = useState(350);
+    const [previewImageSize, setPreviousImageSize] = useState(400);
 
     const addEmoji = (emo) => {
         setEmojis([...emojis, emo]);
@@ -42,7 +30,6 @@ const StickerWrap = ({ displayImage }) => {
                     uri: uri,
                     width: width,
                     height: height
-
                 })
             });
             console.log('done capturing!')
@@ -61,86 +48,54 @@ const StickerWrap = ({ displayImage }) => {
         setShowSticker(false);
     }
 
-    const PreviewStickerImage = (imageUrl, size = 15) => {
+    const PreviewStickerImage = () => {
         return (
             <Image
                 style={{
-                    width: previewImageSize,
-                    height: previewImageSize,
-                    margin: 5
+                    width: '100%',
+                    height: '90%',
+                    margin: 0,
                 }}
                 source={{ uri: finalImage.uri }}
             />
         )
     }
 
-    const SheetStickerImage = (imageUrl, size = 15) => {
-        return (
-            <Image
-                style={{ width: 50, height: 50, margin: 5 }}
-                source={imageUrl}
-            />
-        )
-    }
-    const defaultStickers = [
-        [SheetStickerImage(ghost), ghost],
-        [SheetStickerImage(heart), heart],
-        [SheetStickerImage(heartEyes), heartEyes],
-        [SheetStickerImage(kiss), kiss],
-        [SheetStickerImage(party), party],
-        [SheetStickerImage(robot), robot],
-        [SheetStickerImage(smile), smile],
-        [SheetStickerImage(sunglasses), sunglasses],
-        [SheetStickerImage(thumbsup), thumbsup]
-    ];
-
-    let finalStickers = defaultStickers;
-    /* if (!stickers) {
-        finalStickers = defaultStickers;
-    } else if (includeDefaultStickers) {
-        finalStickers = stickers.concat(defaultStickers);
-    } else {
-        finalStickers = stickers;
-    } */
-
-
     return (
         <View style={{ flex: 1 }}>
             {(pickerVisible) ?
                 <>
                     <ViewShot
-                        style={{ flex: 1.2 }}
+                        style={{ flex: 3 }}
                         ref={viewShot}
                         options={{ format: 'jpg', quality: 1.0 }}
                     >
-                        <Sticker image={displayImage} emojis={emojis} />
-                    </ViewShot>
-
-                    <TouchableOpacity onPress={() => takeViewShot()} style={{ flex: 0.5 }}>
-                        <Text>Take Snapshot</Text>
-                    </TouchableOpacity>
-                    <View >
-                        <Button title='Hi' />
-                    </View>
-                    <WithSheet props={addEmoji} />
-                    {/* <ScrollView overScrollMode={'always'} horizontal={true} contentContainerStyle={[styles.stickerPickerContainer]}>
-                        {finalStickers.map((sticker, index) => {
+                        <Image source={displayImage} style={{ flex: 1, width: '100%' }} />
+                        {emojis.map((sticker, index) => {
                             return (
-                                <TouchableOpacity key={index} onPress={() => setSticker(sticker[1])}>
-                                    {sticker[0]}
-                                </TouchableOpacity>
+                                <StickerHandler image={sticker} key={index} />
                             )
                         })}
-                    </ScrollView> */}
+                    </ViewShot>
 
+                    <WithSheet props={addEmoji} />
+                    <View style={{ flex: 0.15 }} >
+                        <Button title='Take Snapshot' onPress={() => takeViewShot()} />
+                    </View>
                 </>
                 :
                 <>
-                    <Text>This is a preview</Text>
                     <PreviewStickerImage imageUrl={finalImage.uri} />
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 20 }}>
-                        <Button title='Go Back' onPress={() => setPickerVisible(true)} />
-                        <Button title='Go Forward' />
+                        <View style={{ flex: 0.4 }}>
+                            <Button title='Go Back' onPress={() => {
+                                setPickerVisible(true);
+                                setEmojis([])
+                            }} />
+                        </View>
+                        <View style={{ flex: 0.4 }}>
+                            <Button title='Go Forward' />
+                        </View>
                     </View>
                 </>
             }

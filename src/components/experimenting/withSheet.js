@@ -34,30 +34,28 @@ const defaultStickers = [
 ];
 
 let finalStickers = defaultStickers;
+/* if (!stickers) {
+       finalStickers = defaultStickers;
+   } else if (includeDefaultStickers) {
+       finalStickers = stickers.concat(defaultStickers);
+   } else {
+       finalStickers = stickers;
+   } */
 
 const WithSheet = (props) => {
-
     const logger = () => {
         console.log('Sticker is selected', props.props);
-
     }
-
-    //export default class WithSheet extends React.Component {
     const renderInner = () => (
-        // <View style={styles.panel}>
         <ScrollView overScrollMode={'always'} horizontal={true} contentContainerStyle={[styles.stickerPickerContainer]}>
             {finalStickers.map((sticker, index) => {
                 return (
-                    /*  <TouchableOpacity key={index} onPress={() => logger()}>
-                         {sticker[0]}
-                     </TouchableOpacity> */
                     <View key={index} onTouchStart={() => props.props(sticker[1])}>
                         {sticker[0]}
                     </View>
                 )
             })}
         </ScrollView>
-        //  </View>
     )
     const renderHeader = () => <View style={styles.header} />
     const fall = new Animated.Value(1)
