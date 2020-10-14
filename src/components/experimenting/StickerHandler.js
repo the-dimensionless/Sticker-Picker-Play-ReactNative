@@ -14,8 +14,7 @@ const MAXIMUM_STICKER_SCALE = 2.5;
 
 const StickerHandler = (props) => {
     useEffect(() => {
-        console.log('Component Loaded. . .');
-        console.log('Image Loaded. . . ', props.image);
+        console.log('StickeHandler Component Loaded. . .');
     });
 
     let dragImageRef = React.createRef();
@@ -135,7 +134,7 @@ const StickerHandler = (props) => {
                                         ],
                                     },
                                 ]}
-                                source={ghost}
+                                source={props.image}
                             />
                         </Animated.View>
                     </PinchGestureHandler>

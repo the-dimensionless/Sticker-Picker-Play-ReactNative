@@ -18,15 +18,17 @@ export default function App() {
     // <Example />
     // <StickerOverlay />
     // <ImagePlay />
-    // <StickerWraps displayImage={DisplayImage} />
+    <StickerWraps displayImage={DisplayImage} />
     //<Layout />
     //<FLayout / >
     //<WithSheet />
-    <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-      <Image source={DisplayImage} />
-      <StickerHandler />
-      <StickerHandler />
-    </View>
+    /*  
+       <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
+       <Image source={DisplayImage} />
+       <StickerHandler />
+       <StickerHandler />
+     </View>
+    */
 
   );
 }

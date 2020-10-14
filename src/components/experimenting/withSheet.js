@@ -16,7 +16,7 @@ import thumbsup from '../../../assets/emojis/thumbsup.png';
 const SheetStickerImage = (imageUrl, size = 15) => {
     return (
         <Image
-            style={{ width: 50, height: 50, margin: 5 }}
+            style={{ width: 70, height: 70, margin: 5 }}
             source={imageUrl}
         />
     )
